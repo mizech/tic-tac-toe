@@ -1,12 +1,9 @@
 package com.mizech.tictactoe
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.mizech.tictactoe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -48,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         binding.resetGame.setOnClickListener {
             gameState.clear()
             imageViews.forEach {
-                it.setImageResource(R.drawable.ic_baseline_remove_24)
+                it.setImageResource(R.drawable.not_set)
                 it.isEnabled = true
                 isPlayerOne = true
             }

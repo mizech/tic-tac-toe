@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView0"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView1"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -60,7 +60,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView0"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -74,7 +74,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -88,7 +88,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView1"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -102,7 +102,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -115,7 +115,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -129,7 +129,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
+        app:srcCompat="@drawable/not_set" />
 
     <TextView
         android:id="@+id/currentMessage"
