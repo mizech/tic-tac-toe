@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="one_won_message">Player One has won</string>
+    <string name="two_one_message">Player Two has won</string>
 </resources>
