@@ -11,9 +11,10 @@ import com.mizech.tictactoe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     val TAG = this::class.java.name
+    private lateinit var binding: ActivityMainBinding
+
     var gameState = mutableListOf<FeasibleState>()
     var isPlayerOne = true
-    private lateinit var binding: ActivityMainBinding
     val imageViews = mutableListOf<ImageView>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,8 +55,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     fun checkGameState(currentPlayer: FeasibleState): Boolean {
         if (gameState.get(0) === currentPlayer && gameState.get(1) === currentPlayer && gameState.get(2) === currentPlayer) {
             return true
@@ -95,13 +94,13 @@ class MainActivity : AppCompatActivity() {
     fun processStateChange(it: View) {
         val imgView = it as ImageView
         if (isPlayerOne) {
-            imgView.setImageResource(R.drawable.ic_baseline_done_24)
+            imgView.setImageResource(R.drawable.player_one)
             gameState.set(imgView.tag.toString().toInt(), FeasibleState.PLAYER_ONE)
             if (checkGameState(FeasibleState.PLAYER_ONE) == true) {
                 binding.currentMessage.text = "Player One has won"
             }
         } else {
-            imgView.setImageResource(R.drawable.ic_baseline_radio_button_unchecked_24)
+            imgView.setImageResource(R.drawable.player_two)
             gameState.set(imgView.tag.toString().toInt(), FeasibleState.PLAYER_TWO)
             if (checkGameState(FeasibleState.PLAYER_TWO) == true) {
                 binding.currentMessage.text = "Player Two has won"
