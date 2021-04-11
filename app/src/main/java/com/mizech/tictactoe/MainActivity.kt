@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 it.isEnabled = true
                 isPlayerOne = true
             }
+            binding.currentMessage.text = ""
         }
     }
 
@@ -88,8 +89,8 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        if (gameState[5] === currentPlayer && gameState[4] === currentPlayer
-                && gameState[2] === currentPlayer) {
+        if (gameState[2] === currentPlayer && gameState[4] === currentPlayer
+                && gameState[6] === currentPlayer) {
             return true
         }
 
