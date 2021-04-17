@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             val dialog = AlertDialog.Builder(this)
             dialog.apply {
+                setIcon(R.drawable.ic_baseline_priority_high_24)
                 setTitle("Game Reset")
                 setMessage("Do you want to continue?")
                 setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
