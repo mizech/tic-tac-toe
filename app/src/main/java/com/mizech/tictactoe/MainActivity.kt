@@ -1,5 +1,6 @@
 package com.mizech.tictactoe
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -43,13 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.resetGame.setOnClickListener {
-            gameState.clear()
-            imageViews.forEach {
-                it.setImageResource(R.drawable.not_set)
-                it.isEnabled = true
-                isPlayerOne = true
-            }
-            binding.currentMessage.text = ""
+           val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
