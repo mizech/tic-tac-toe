@@ -3,17 +3,16 @@ package com.mizech.tictactoe
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.mizech.tictactoe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
     private var gameState = mutableListOf<FeasibleState>()
     private var isPlayerOne = true
     private val imageViews = mutableListOf<ImageView>()
@@ -48,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.resetGame.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            val snackbar = Snackbar.make(it, "Game Reset cancelled",
+                    Snackbar.LENGTH_LONG)
             val dialog = AlertDialog.Builder(this)
             dialog.apply {
                 setIcon(R.drawable.ic_baseline_priority_high_24)
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
                 setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
-                    Toast.makeText(applicationContext, "Game Reset cancelled", Toast.LENGTH_LONG).show();
+                    snackbar.show()
                 })
             }.show()
         }
@@ -113,19 +114,25 @@ class MainActivity : AppCompatActivity() {
             imgView.setImageResource(R.drawable.player_one)
             gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_ONE
             if (checkGameState(FeasibleState.PLAYER_ONE)) {
-                binding.currentMessage.text = getString(R.string.one_won_message)
-                binding.currentMessage.setTextColor(Color.parseColor("#64FF64"))
+                setWinner(R.string.one_won_message, "#64FF64")
             }
         } else {
             imgView.setImageResource(R.drawable.player_two)
             gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_TWO
             if (checkGameState(FeasibleState.PLAYER_TWO)) {
-                binding.currentMessage.text = getString(R.string.two_one_message)
-                binding.currentMessage.setTextColor(Color.parseColor("#FF6464"))
+                setWinner(R.string.two_one_message, "#FF6464")
             }
         }
 
         isPlayerOne = !isPlayerOne
         imgView.isEnabled = false
+    }
+
+    private fun setWinner(winnerString: Int, winnerColor: String) {
+        imageViews.forEach {
+            it.isEnabled = false
+        }
+        binding.currentMessage.text = getString(R.string.one_won_message)
+        binding.currentMessage.setTextColor(Color.parseColor(winnerColor))
     }
 }
