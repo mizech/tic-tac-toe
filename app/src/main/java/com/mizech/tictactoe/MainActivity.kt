@@ -1,11 +1,14 @@
 package com.mizech.tictactoe
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.mizech.tictactoe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -44,8 +47,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.resetGame.setOnClickListener {
-           val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, MainActivity::class.java)
+            val dialog = AlertDialog.Builder(this)
+            dialog.apply {
+                setTitle("Game Reset")
+                setMessage("Do you want to continue?")
+                setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                    startActivity(intent)
+                })
+                setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
+                    Toast.makeText(applicationContext, "Game Reset cancelled", Toast.LENGTH_LONG).show();
+                })
+            }.show()
         }
     }
 
