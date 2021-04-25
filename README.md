@@ -7,4 +7,5 @@ Android [Tic-Tac-Toe](https://de.wikipedia.org/wiki/Tic-Tac-Toe) adaptation, whi
     <img src="./images/playing.png" alt="screenshot_2" width="200" />&nbsp;&nbsp;
     <img src="./images/reset.png" alt="screenshot_3" width="200" />&nbsp;&nbsp;
     <img src="./images/won.png" alt="screenshot_4" width="200" />
+    <img src="./images/tie.png" alt="screenshot_5" width="200" />
 </div>
