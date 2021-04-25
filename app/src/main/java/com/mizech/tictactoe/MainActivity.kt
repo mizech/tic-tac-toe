@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             fieldsUsed++
             gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_TWO
 
-            checkResult(FeasibleState.PLAYER_TWO, R.string.two_won_message, "FF6464")
+            checkResult(FeasibleState.PLAYER_TWO, R.string.two_won_message, "#FF6464")
         }
 
         isPlayerOne = !isPlayerOne
