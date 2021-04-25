@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var gameState = mutableListOf<FeasibleState>()
     private var isPlayerOne = true
+    private var fieldsUsed = 0
     private val imageViews = mutableListOf<ImageView>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,27 +113,35 @@ class MainActivity : AppCompatActivity() {
         val imgView = it as ImageView
         if (isPlayerOne) {
             imgView.setImageResource(R.drawable.player_one)
+            fieldsUsed++
             gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_ONE
-            if (checkGameState(FeasibleState.PLAYER_ONE)) {
-                setWinner(R.string.one_won_message, "#64FF64")
-            }
+
+            checkResult(FeasibleState.PLAYER_ONE, R.string.one_won_message, "#64FF64")
         } else {
             imgView.setImageResource(R.drawable.player_two)
+            fieldsUsed++
             gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_TWO
-            if (checkGameState(FeasibleState.PLAYER_TWO)) {
-                setWinner(R.string.two_one_message, "#FF6464")
-            }
+
+            checkResult(FeasibleState.PLAYER_TWO, R.string.two_won_message, "FF6464")
         }
 
         isPlayerOne = !isPlayerOne
         imgView.isEnabled = false
     }
 
-    private fun setWinner(winnerString: Int, winnerColor: String) {
+    private fun checkResult(currentPlayer: FeasibleState, message: Int, winnerColor: String) {
+        if (checkGameState(currentPlayer)) {
+            setFinalResult(message, winnerColor)
+        } else if (fieldsUsed == 9) {
+            setFinalResult(R.string.tie_message, "#ff00ff")
+        }
+    }
+
+    private fun setFinalResult(winnerString: Int, winnerColor: String) {
         imageViews.forEach {
             it.isEnabled = false
         }
-        binding.currentMessage.text = getString(R.string.one_won_message)
+        binding.currentMessage.text = getString(winnerString)
         binding.currentMessage.setTextColor(Color.parseColor(winnerColor))
     }
 }
