@@ -1,9 +1,11 @@
+@file:Suppress("DEPRECATION")
+
 package com.mizech.tictactoe
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
@@ -14,7 +16,7 @@ import com.mizech.tictactoe.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var gameState = mutableListOf<FeasibleState>()
-    private var isPlayerOne = true
+    private var isPlayer = true
     private var fieldsUsed = 0
     private val imageViews = mutableListOf<ImageView>()
 
@@ -110,30 +112,50 @@ class MainActivity : AppCompatActivity() {
 
     private fun processStateChange(it: View) {
         val imgView = it as ImageView
-        if (isPlayerOne) {
-            imgView.setImageResource(R.drawable.player_one)
-            fieldsUsed++
-            gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_ONE
 
-            checkResult(FeasibleState.PLAYER_ONE, R.string.one_won_message, "#64FF64")
-        } else {
-            imgView.setImageResource(R.drawable.player_two)
-            fieldsUsed++
-            gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_TWO
+        imgView.setImageResource(R.drawable.player)
+        fieldsUsed++
+        gameState[imgView.tag.toString().toInt()] = FeasibleState.PLAYER_ONE
 
-            checkResult(FeasibleState.PLAYER_TWO, R.string.two_won_message, "#FF6464")
+        var hasWon = checkResult(FeasibleState.PLAYER_ONE, R.string.player_won_message, "#64FF64")
+        if (!hasWon) {
+            val handler = Handler()
+            handler.postDelayed({
+                doComputerMove()
+            }, 1000)
         }
-
-        isPlayerOne = !isPlayerOne
-        imgView.isEnabled = false
     }
 
-    private fun checkResult(currentPlayer: FeasibleState, message: Int, winnerColor: String) {
+    private fun doComputerMove() {
+        var iRandom = (0..8).random()
+
+        var isNotSet = gameState[iRandom] === FeasibleState.NOT_SET
+
+        while (!isNotSet) {
+            iRandom = ++iRandom % gameState.size
+            isNotSet = gameState[iRandom] === FeasibleState.NOT_SET
+        }
+
+        var imgView = imageViews[iRandom]
+        imgView.isEnabled = false
+        imgView.setImageResource(R.drawable.computer)
+        fieldsUsed++
+        gameState[imgView.tag.toString().toInt()] = FeasibleState.COMPUTER
+
+        checkResult(FeasibleState.COMPUTER, R.string.computer_won_message, "#FF6464")
+    }
+
+    private fun checkResult(currentPlayer: FeasibleState, message: Int,
+                            winnerColor: String): Boolean {
         if (checkGameState(currentPlayer)) {
             setFinalResult(message, winnerColor)
+            return true
         } else if (fieldsUsed == 9) {
             setFinalResult(R.string.tie_message, "#ff00ff")
+            return true
         }
+
+        return false
     }
 
     private fun setFinalResult(winnerString: Int, winnerColor: String) {
@@ -156,6 +178,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.currentMessage.text = ""
         fieldsUsed = 0
-        isPlayerOne = true
+        isPlayer = true
     }
 }
