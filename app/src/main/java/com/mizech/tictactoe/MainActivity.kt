@@ -16,7 +16,6 @@ import com.mizech.tictactoe.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var gameState = mutableListOf<FeasibleState>()
-    private var isPlayer = true
     private var fieldsUsed = 0
     private val imageViews = mutableListOf<ImageView>()
 
@@ -122,7 +121,7 @@ class MainActivity : AppCompatActivity() {
             val handler = Handler()
             handler.postDelayed({
                 doComputerMove()
-            }, 1000)
+            }, 300)
         }
     }
 
@@ -178,6 +177,5 @@ class MainActivity : AppCompatActivity() {
 
         binding.currentMessage.text = ""
         fieldsUsed = 0
-        isPlayer = true
     }
 }
