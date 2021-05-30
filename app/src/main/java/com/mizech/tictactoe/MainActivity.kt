@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.resetGame.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
             val snackbar = Snackbar.make(it, "Game Reset cancelled",
                     Snackbar.LENGTH_LONG)
             val dialog = AlertDialog.Builder(this)
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 setTitle("Game Reset")
                 setMessage("Do you want to continue?")
                 setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-                    startActivity(intent)
+                    resetGameState()
                 })
                 setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
                     snackbar.show()
@@ -143,5 +142,20 @@ class MainActivity : AppCompatActivity() {
         }
         binding.currentMessage.text = getString(winnerString)
         binding.currentMessage.setTextColor(Color.parseColor(winnerColor))
+    }
+
+    private fun resetGameState() {
+        for (index in 0..8) {
+            gameState[index] = FeasibleState.NOT_SET
+        }
+
+        imageViews.forEach {
+            it.setImageResource(R.drawable.not_set)
+            it.isEnabled = true
+        }
+
+        binding.currentMessage.text = ""
+        fieldsUsed = 0
+        isPlayerOne = true
     }
 }
