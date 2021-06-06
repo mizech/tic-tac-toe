@@ -3,4 +3,5 @@
     <string name="player_won_message">You have won!</string>
     <string name="computer_won_message">Computer has won</string>
     <string name="tie_message">Tie</string>
+    <string name="reset_game">Reset Game</string>
 </resources>
