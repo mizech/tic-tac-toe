@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.resetGame.setOnClickListener {
-            val snackbar = Snackbar.make(it, "Game Reset cancelled",
+            val snackbar = Snackbar.make(it, getString(R.string.reset_cancel_msg),
                     Snackbar.LENGTH_LONG)
             val dialog = AlertDialog.Builder(this)
             dialog.apply {
