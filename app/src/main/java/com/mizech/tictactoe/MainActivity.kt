@@ -53,12 +53,12 @@ class MainActivity : AppCompatActivity() {
             val dialog = AlertDialog.Builder(this)
             dialog.apply {
                 setIcon(R.drawable.ic_baseline_priority_high_24)
-                setTitle("Game Reset")
-                setMessage("Do you want to continue?")
-                setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                setTitle(getString(R.string.alert_title))
+                setMessage(getString(R.string.alert_text))
+                setPositiveButton(getString(R.string.alert_yes), DialogInterface.OnClickListener { dialog, which ->
                     resetGameState()
                 })
-                setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
+                setNegativeButton(getString(R.string.alert_no), DialogInterface.OnClickListener { dialog, which ->
                     snackbar.show()
                 })
             }.show()

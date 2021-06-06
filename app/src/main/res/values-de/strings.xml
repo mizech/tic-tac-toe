@@ -5,4 +5,8 @@
     <string name="computer_won_message">Computer gewinnt.</string>
     <string name="tie_message">Unentschieden</string>
     <string name="reset_game">Spiel zurücksetzen</string>
+    <string name="alert_title">Spiel wird zurückgesetzt</string>
+    <string name="alert_text">Möchten Sie fortfahren?</string>
+    <string name="alert_yes">Ja</string>
+    <string name="alert_no">Nein</string>
 </resources>
