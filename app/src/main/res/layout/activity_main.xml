@@ -8,11 +8,24 @@
 
 
     <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/field_border"
+        android:tag="1"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/not_set" />
+
+    <ImageView
         android:id="@+id/imageView0"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/field_border"
         android:tag="0"
         app:layout_constraintEnd_toStartOf="@+id/imageView1"
@@ -25,26 +38,13 @@
         android:id="@+id/imageView2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/field_border"
         android:tag="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/not_set" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/field_border"
-        android:tag="1"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView0"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/not_set" />
 
@@ -141,7 +141,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/resetGame" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -182,10 +182,11 @@
         android:id="@+id/resetGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/reset_game"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
