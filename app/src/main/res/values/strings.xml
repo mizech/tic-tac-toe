@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TicTacToe</string>
-    <string name="player_won_message">You have won!</string>
-    <string name="computer_won_message">Computer has won</string>
+    <string name="player_won_message">You win!</string>
+    <string name="computer_won_message">Computer wins</string>
     <string name="tie_message">Tie</string>
     <string name="reset_game">Reset Game</string>
     <string name="alert_title">Game Reset</string>

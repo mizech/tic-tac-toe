@@ -13,13 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.mizech.tictactoe.databinding.ActivityMainBinding
 
-/*
-    Todo: https://stackoverflow.com/questions/26893796/how-to-set-emoji-by-unicode-in-a-textview
-    Siehe resources, DE, app_name als Beispiel
-
-    Todo: Top-bar ausblenden.
- */
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var gameState = mutableListOf<FeasibleState>()

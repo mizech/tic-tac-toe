@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TicTacToe &#128512;</string>
-    <string name="player_won_message">Du hast gewonnen!</string>
-    <string name="computer_won_message">Computer gewinnt.</string>
+    <string name="app_name">TicTacToe</string>
+    <string name="player_won_message">Gewonnen</string>
+    <string name="computer_won_message">Verloren</string>
     <string name="tie_message">Unentschieden</string>
     <string name="reset_game">Spiel zurücksetzen</string>
     <string name="alert_title">Spiel wird zurückgesetzt</string>
